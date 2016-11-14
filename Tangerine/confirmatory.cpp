@@ -40,3 +40,43 @@ void ConfirmatoryTest::confirm(std::string location)
 		confirmatory_tester[current_hash] = location;
 	}
 }
+
+void ConfirmatoryTest::process_duplicates()
+{
+	std::list<std::string>::iterator itr1 = confirmatory_result.begin();
+	std::list<std::string>::iterator itr2 = confirmatory_result.end();
+	int count = 0;
+	for (std::list<std::string>::iterator itr = itr1; itr != itr2; ++itr)
+	{
+		std::string proc = get_hash_for(*itr);
+		std::map<std::string, std::string>::iterator clean = remove_duplicates.find(proc);
+		if (clean == remove_duplicates.end())remove_duplicates[proc] = *itr;
+		else std::cout << "\nProcessing \n";
+		count++;
+	}
+	std::cout << "\n" << count << "Files will be removed continue [y/n]: ";
+	char input;
+	std::cin >> input;
+	if (input == 'y')
+	{
+		std::map<std::string, std::string>::iterator top = remove_duplicates.begin();
+		std::map<std::string, std::string>::iterator bottom = remove_duplicates.end();
+		std::cout << "\n These are the files to be removed\n";
+		for (std::map<std::string, std::string>::iterator accesses = top; accesses != bottom; ++accesses)
+		{
+			std::cout << accesses->second;
+		}
+		std::cout << "\n Press any key to continue or close the window to terminate the process\n";
+		std::cin >> input;
+		for (std::map<std::string, std::string>::iterator accesses = top; accesses != bottom; ++accesses)
+		{
+			if (std::ifstream(accesses->second))
+			{
+				std::cout <<"\nRemoving:" <<accesses->second;
+				remove(accesses->second.c_str());
+				std::cout << "\nRemoved:" << accesses->second;
+			}
+			
+		}
+	}
+}

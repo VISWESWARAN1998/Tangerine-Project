@@ -42,4 +42,6 @@ void PreliminaryTest::send_the_report_for_confirmatory_test()
 		std::cout << *itr;
 		confirm(*itr);
 	}
+	process_duplicates();
 }
+
