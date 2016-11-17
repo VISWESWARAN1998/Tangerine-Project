@@ -17,6 +17,8 @@ protected:
 	std::map<std::string, std::string> remove_duplicates;
 	// Final Neat and Clean list of the locations of duplicate files are been stored here
 	std::list<std::string> confirmatory_result;
+	// Scheduled removal process
+	std::list<std::string> remove_these_files;
 public:
 	std::string get_hash_for(const std::string location);
 	void confirm(std::string location);

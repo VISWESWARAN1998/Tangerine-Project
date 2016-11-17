@@ -7,7 +7,7 @@
 #include<fstream>
 #include<Windows.h>
 #include<string>
-#include"scan.h"
+
 
 
 
