@@ -1,4 +1,4 @@
-#Tangerine Project:
+#Tangerine Project:           [![ReviewNinja](https://app.review.ninja/73602423/badge)](https://app.review.ninja/VISWESWARAN1998/Tangerine-Project)
 
 # Tangerine-Duplicate-Files-Finder:
 This is a C++ implemetation (cross-platform) to find and remove duplicated files from the directory or drive. 
