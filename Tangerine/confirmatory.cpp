@@ -94,18 +94,60 @@ void ConfirmatoryTest::process_duplicates()
 		{
 			std::cout <<*accesses<<"\n";
 		}
-		std::cout << "\n Press any alphabetical/numerical key to continue or close the window to terminate the process\n";
-		std::cin >> input;
-		for (std::list<std::string>::iterator accesses = top; accesses != bottom; ++accesses)
+		int input1;
+		std::cout << "\n Press 1 to remove all files or 2 to remove selective files\n";
+		std::cin >> input1;
+		int id = 0; //This denotes the id of the files
+		switch (input1)
 		{
-			if (std::ifstream(*accesses))
+		case 1:
+			for (std::list<std::string>::iterator accesses = top; accesses != bottom; ++accesses)
 			{
-				std::cout << "\nRemoving:" << *accesses;
-				std::string rem = *accesses;
-				remove(rem.c_str());
-				std::cout << "\nRemoved:" << *accesses;
-			}
+				if (std::ifstream(*accesses))
+				{
+					std::cout << "\nRemoving:" << *accesses;
+					std::string rem = *accesses;
+					remove(rem.c_str());
+					std::cout << "\nRemoved:" << *accesses;
+				}
 
+			}
+			break;
+		case 2: 
+			
+			for (std::list<std::string>::iterator accesses1 = top; accesses1 != bottom; ++accesses1)
+			{
+				if (std::ifstream(*accesses1)) //location check is necessary
+				{
+					std::cout << *accesses1 << " checker runnig\n";
+					std::string real = *accesses1;
+					remove_selected[id] = real;
+					id++; // Id gets incremented so that we can get unique address
+				}
+			}
+			for (int i = 0; i < 10; i++)std::cout << "\n"; // we need space
+			std::cout << "The files to be removed\n========================================\n";
+			for (std::map<int, std::string>::iterator selective_removal = remove_selected.begin(); selective_removal != remove_selected.end(); ++selective_removal)
+			{
+				std::cout<< selective_removal->first<<"=>   "<<selective_removal->second << "\n";
+			}
+			while (1)
+			{
+				int no; // id
+				std::cout << "Enter the no displayed in the screen to remove the file\n";
+				std::cin >> no;
+				std::map<int, std::string>::iterator search_for_id;
+				search_for_id = remove_selected.find(no);
+				if (search_for_id != remove_selected.end())
+				{
+					if (std::ifstream(search_for_id->second))remove(search_for_id->second.c_str());
+					else std::cout << "\nFile has been removed already";
+				}
+				else std::cout << "\nInvalid ID try again\n";
+			}
+			break;
+		default:
+			std::cout << "\nAbort";
 		}
 	}
 }

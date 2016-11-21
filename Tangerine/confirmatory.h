@@ -8,7 +8,8 @@ class ConfirmatoryTest
 private:
 	// Map to identify the hash matching
 	std::map<std::string, std::string> confirmatory_tester;
-	
+	// Selective files removal
+	std::map<int, std::string> remove_selected;
 
 // The Member of This access specifier is used between member function of different class - so no provate
 protected:
