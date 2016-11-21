@@ -1,0 +1,6 @@
+{
+  "name": "Tangerine-project",
+  "tagline": "Tangerine Project: various engines for your PC",
+  "body": "# Tangerine Project:\r\n\r\n# Tangerine Duplicate Files Finder:\r\n\r\nThis is a C++ implemetation (cross-platform) to find and remove duplicated files from the directory or drive. \r\nPurpose: \r\nUsed to find and remove duplicate files implemented in C++ with 100% accuracy \r\nFeature Addition: \r\n1. Facility to remove the duplicate files \r\nBug fixes: \r\n1. Removes only one duplicate files Used to find duplicate files and remove all the files \r\nOTHERS:\r\nImplemented in C++ with 100% accuracy, extremely fast and efficient\r\n\r\n# Building instructions:\r\n1. Install boost library on Visual Studio or the IDE of your choice\r\n2. Disable security checks if you are in Visual Studio\r\n3. Build the project and run it\r\n\r\n# License:\r\nApache 2.0, (C) VISWESWARAN N, 2016\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
