@@ -17,4 +17,6 @@ addons:
 
 compiler:
   - g++
+  
+script: ./configure && make && make test
 
