@@ -1,0 +1,14 @@
+language: cpp
+
+install: make get-deps
+
+compiler:
+  - clang
+  - gcc
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake ..
+
+script: make
